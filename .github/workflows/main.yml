@@ -5,10 +5,8 @@ jobs:
     name: Hello world action
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout main
-        uses: actions/checkout@v2
-        with:
-          fetch-depth: 0
+      - name: Switch to main
+        run: git checkout main
       - name: Run Docker1
         uses: ./action-a
         with:
