@@ -16,8 +16,10 @@ jobs:
           fetch-depth: 0
           path: ./main
           ref: refs/heads/main
+
+
       - name: Run Docker1
-        uses: ./action-a
+        uses: ./branch/action-a
         with:
           MY_NAME: "Mona"
 
