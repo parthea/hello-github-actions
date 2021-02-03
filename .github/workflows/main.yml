@@ -5,15 +5,16 @@ jobs:
     name: Hello world action
     runs-on: ubuntu-latest
     steps:
+
       - name: Checkout branch
         uses: actions/checkout@v2
         with:
-          fetch-depth: 0
+          ref: ${{ env.BRANCH }}
           path: ./branch
+
       - name: Checkout main
         uses: actions/checkout@v2
         with:
-          fetch-depth: 0
           path: ./main
           ref: refs/heads/main
 
