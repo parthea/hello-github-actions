@@ -27,4 +27,4 @@ jobs:
         run: pip3 install pandas
 
       - name: Run change_summary.py
-        run: python3 change_summary.py
+        run: python3 ./branch/change_summary.py
