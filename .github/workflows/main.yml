@@ -18,6 +18,13 @@ jobs:
           path: ./main
           ref: refs/heads/main
 
+      - name: Set up Python 3.9
+        uses: actions/setup-python@v1
+        with:
+          python-version: 3.9
+
+      - name: Install pandas
+        run: pip install pandas
 
       - name: Run Docker1
         uses: ./branch/action-a
