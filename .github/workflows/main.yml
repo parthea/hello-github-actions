@@ -24,10 +24,7 @@ jobs:
           python-version: 3.9
 
       - name: Install pandas
-        run: pip install pandas
+        run: pip3 install pandas
 
-      - name: Run Docker1
-        uses: ./branch/action-a
-        with:
-          MY_NAME: "Mona"
-
+      - name: Run change_summary.py
+        run: ./python3 change_summary.py
