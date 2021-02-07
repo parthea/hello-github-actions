@@ -1,11 +1,11 @@
 name: A workflow for my Hello World file
-on: [push, pull_request]
+on: [pull_request]
 jobs:
   build:
     name: Hello world action
     runs-on: ubuntu-latest
+    if: github.actor == 'parthea'
     steps:
-
       - name: Checkout branch
         uses: actions/checkout@v2
         with:
@@ -32,7 +32,6 @@ jobs:
       - name: Update PR Body
         uses: actions/github-script@v2.0.0
         with:
-          #github-token: ${{secrets.GITHUB_TOKEN}}
           script: |
             const newBody = `test`
             github.issues.update({
