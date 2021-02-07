@@ -28,7 +28,7 @@ jobs:
 
       - name: Run change_summary.py
         id: get_actor
-      - run: |
+        run: |
           output=$(python3 ./branch/change_summary.py)
           output="${output//'%'/'%25'}"
           output="${output//$'\n'/'%0A'}"
