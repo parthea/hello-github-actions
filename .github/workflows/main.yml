@@ -26,6 +26,10 @@ jobs:
       - name: Install pandas
         run: pip3 install pandas
 
+      - name: Get actor
+        run: |
+        echo ${{github.event.issue.user.login}}
+
       # - name: Run change_summary.py
       #   run: python3 ./branch/change_summary.py
 
@@ -33,7 +37,6 @@ jobs:
         uses: actions/github-script@v2.0.0
         with:
           script: |
-            echo ${{github.event.issue.user.login}}
             const newBody = `test`
             github.issues.update({
               issue_number: context.issue.number,
