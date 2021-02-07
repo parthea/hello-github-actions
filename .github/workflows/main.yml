@@ -26,14 +26,19 @@ jobs:
       # - name: Install pandas
       #   run: pip3 install pandas
 
-      # - name: Get actor
-      #   run: echo ${{github.event.pull_request.user.login}}
+      - name: Get actor
+        id: get_actor
+        run: echo "::set-output name=actor::${{github.event.pull_request.user.login}}"
+
+      - name: Get output from previous step
+        run: echo ${{ steps.get_actor.outputs.actor}}
 
       # - name: Get title
       #   run: echo ${{github.event.pull_request.title}}
 
       # - name: Run change_summary.py
       #   run: python3 ./branch/change_summary.py
+
 
       - name: Update PR Body
         uses: actions/github-script@v2.0.0
