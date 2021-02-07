@@ -4,7 +4,7 @@ jobs:
   build:
     name: Hello world action
     runs-on: ubuntu-latest
-    # if: ${{github.event.issue.user.login == 'parthea'}}
+    #if: ${{github.event.pull_request.user.login == 'parthea'}}
     steps:
       - name: Checkout branch
         uses: actions/checkout@v2
@@ -23,11 +23,14 @@ jobs:
         with:
           python-version: 3.9
 
-      - name: Install pandas
-        run: pip3 install pandas
+      # - name: Install pandas
+      #   run: pip3 install pandas
 
       - name: Get actor
-        run: echo ${{github.event.issue.user.login}}
+        run: echo ${{github.event.pull_request.user.login}}
+
+      - name: Get title
+        run: echo ${{github.event.pull_request.title}}
 
       # - name: Run change_summary.py
       #   run: python3 ./branch/change_summary.py
