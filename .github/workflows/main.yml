@@ -28,7 +28,7 @@ jobs:
 
       - name: Run change_summary.py
         id: get_actor
-        run: echo "::set-output name=actor::python3 ./branch/change_summary.py"
+        run: "::set-output name=actor::python3 ./branch/change_summary.py"
 
       - name: Get output from previous step
         run: echo ${{ steps.get_actor.outputs.actor}}
