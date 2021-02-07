@@ -52,7 +52,7 @@ jobs:
 
       - name: Add Semver tag for breaking changes
         uses: actions/github-script@v2.0.0
-        if: contains(github.event.pull_request.body, ")&#58; update the api")
+        if: contains(github.event.pull_request.body, ')&#58; update the api')
         with:
           script: |
             await github.issues.addLabels({
