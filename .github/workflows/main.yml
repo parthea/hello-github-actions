@@ -49,3 +49,15 @@ jobs:
               repo: context.repo.repo,
               body: newBody
             })
+
+      - name: Add Semver tag for breaking changes
+        uses: actions/github-script@v2.0.0
+        if: contains(github.event.pull_request.body, ")&#58; update the api")
+        with:
+          script: |
+            await github.issues.addLabels({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              labels: ["semver: major"]
+            });
