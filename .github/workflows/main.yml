@@ -23,8 +23,8 @@ jobs:
         with:
           python-version: 3.9
 
-      - name: Install pandas
-        run: pip3 install pandas
+      # - name: Install pandas
+      #   run: pip3 install pandas
 
       - name: Run change_summary.py
         id: get_actor
